@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patric Wirth <wirth@hallowelt.com>"
+		]
+	},
+	"bs-socialwatch-desc": "BSSocial",
+	"bs-socialwatch-watchtext": "Watch",
+	"bs-socialwatch-unwatchtext": "Unwatch",
+	"bs-socialwatch-var-watch": "Watch"
+}

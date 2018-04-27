@@ -1,0 +1,64 @@
+{
+	"name": "BlueSpiceSocialWatch",
+	"version": "3.0.0-alpha",
+	"url": "https://help.bluespice.com/index.php/BlueSpiceSocial",
+	"author": "Patric Wirth",
+	"descriptionmsg": "bs-bssocialwatch-desc",
+	"type": "bluespice",
+	"attributes": {
+		"BlueSpiceFoundation": {
+			"Extensions": {
+				"BlueSpiceSocialWatch": {
+					"className": "\\BlueSpice\\Social\\Watch\\Extension",
+					"extPath": "/BlueSpiceSocialWatch",
+					"status": "beta",
+					"package": "BlueSpiceSocial"
+				}
+			}
+		}
+	},
+	"MessagesDirs": {
+		"BlueSpiceSocialWatch": [
+			"i18n"
+		]
+	},
+	"AutoloadNamespaces": {
+		"BlueSpice\\Social\\Watch\\": "src/"
+	},
+	"APIModules": {
+		"bs-socialwatch-tasks": "\\BlueSpice\\Social\\Watch\\Api\\Task\\WatchEntities"
+	},
+	"ResourceModules": {
+		"ext.bluespice.social.watch.styles": {
+			"targets": [ "desktop", "mobile" ],
+			"styles": [
+				"bluespice.social.watch.css"
+			]
+		},
+		"ext.bluespice.social.watch": {
+			"dependencies": [
+				"ext.bluespice.social.entity"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"bluespice.social.watch.js"
+			],
+			"messages": [
+				"bs-socialwatch-watchtext",
+				"bs-socialwatch-unwatchtext"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "BlueSpiceSocialWatch/resources"
+	},
+	"Hooks": {
+		"BSSocialModuleDepths": "\\BlueSpice\\Social\\Watch\\Hook\\BSSocialModuleDepths\\AddModules::callback",
+		"BSEntityGetFullData": "\\BlueSpice\\Social\\Watch\\Hook\\BSEntityGetFullData\\AddWatch::callback",
+		"BSEntityConfigDefaults": "\\BlueSpice\\Social\\Watch\\Hook\\BSEntityConfigDefaults\\IsWatchable::callback",
+		"BSEntitySaveComplete": "\\BlueSpice\\Social\\Watch\\Hook\\BSEntitySaveComplete\\AutoWatch::callback",
+		"BSSocialEntityOutputRenderAfterContent": "\\BlueSpice\\Social\\Watch\\Hook\\BSSocialEntityOutputRenderAfterContent\\AddWatchSection::callback"
+	},
+	"manifest_version": 2
+}

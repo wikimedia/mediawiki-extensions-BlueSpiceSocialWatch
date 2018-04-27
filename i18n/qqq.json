@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patric Wirth <wirth@hallowelt.com>"
+		]
+	},
+	"bs-socialwatch-desc": "Used in [{{canonicalurl:Special:WikiAdmin|mode=ExtensionInfo}} Special:WikiAdmin?mode=ExtensionInfo], description of BlueSpiceSocialWatch extension."
+}

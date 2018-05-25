@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\Watch;
 
-use BlueSpice\Entity as SocialEntity;
+use BlueSpice\Social\Entity as SocialEntity;
 
 class AutoWatcher {
 	/**

@@ -3,7 +3,7 @@
 namespace BlueSpice\Social\Watch;
 
 use BlueSpice\Social\Watch\AutoWatcher;
-use BlueSpice\Entity as SocialEntity;
+use BlueSpice\Social\Entity as SocialEntity;
 
 class AutoWatcherFactory {
 

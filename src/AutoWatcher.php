@@ -116,11 +116,8 @@ class AutoWatcher {
 		if( $this->entity->hasParent() ) {
 			//recursive parent entity watching.
 			//f.e. the entity you commented on
-			$this->watchEntity(
-				$this->entity->getParent(),
-				$status,
-				$this->user
-			);
+			$this->entity = $this->entity->getParent();
+			$this->watchEntity();
 		}
 		
 	}

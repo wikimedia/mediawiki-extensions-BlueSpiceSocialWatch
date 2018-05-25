@@ -28,6 +28,9 @@
 	"APIModules": {
 		"bs-socialwatch-tasks": "\\BlueSpice\\Social\\Watch\\Api\\Task\\WatchEntities"
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"ResourceModules": {
 		"ext.bluespice.social.watch.styles": {
 			"targets": [ "desktop", "mobile" ],

@@ -7,7 +7,7 @@ use BlueSpice\Social\Entity as SocialEntity;
 class AutoWatcher {
 	/**
 	 *
-	 * @var \BlueSpice\Entity
+	 * @var BlueSpice\Social\Entity
 	 */
 	protected $entity;
 

@@ -9,7 +9,7 @@ class AutoWatcherFactory {
 
 	/**
 	 *
-	 * @param \BlueSpice\Entity $entity
+	 * @param BlueSpice\Social\Entity $entity
 	 * @param \IContextSource $context
 	 * @param \User $user
 	 * @return BlueSpice\Social\Watch\AutoWatcher

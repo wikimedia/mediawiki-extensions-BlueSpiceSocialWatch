@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\Watch;
 
-use BlueSpice\Entity;
+use BlueSpice\Entity as SocialEntity;
 
 class AutoWatcher {
 	/**
@@ -23,49 +23,17 @@ class AutoWatcher {
 	 */
 	protected $context;
 
-	protected $autoWatchDone = false;
-
 	/**
-	 *
-	 * @param \IContextSource $context
-	 */
-	public function setContext( \IContextSource $context ) {
-		$this->context = $context;
-	}
-
-	/**
+	 * Context or User must be supplied
 	 *
 	 * @param Entity $entity
-	 */
-	public function setEntity( Entity $entity ) {
-		if( $this->entity == null ) {
-			$this->entity = $entity;
-			return;
-		}
-
-		if( $this->entity->get( Entity::ATTR_ID )
-				!= $entity->get( Entity::ATTR_ID ) ) {
-			$this->entity = $entity;
-			$this->reset();
-		}
-	}
-
-	/**
-	 *
+	 * @param \IContextSource $context
 	 * @param \User $user
 	 */
-	public function setUser( \User $user ) {
+	public function __construct( SocialEntity $entity, \IContextSource $context = null, \User $user = null ) {
+		$this->entity = $entity;
+		$this->context = $context;
 		$this->user = $user;
-	}
-
-	/**
-	 * Gets if the watching has already been done
-	 * for this entity
-	 *
-	 * @return boolean
-	 */
-	public function isAutoWatchDone() {
-		return $this->autoWatchDone;
 	}
 
 	/**
@@ -73,10 +41,6 @@ class AutoWatcher {
 	 * @return boolean
 	 */
 	public function autoWatch() {
-		if( $this->autoWatchDone ) {
-			return true;
-		}
-
 		if( $this->entity == null ) {
 			return false;
 		}
@@ -87,11 +51,7 @@ class AutoWatcher {
 			return false;
 		}
 
-		\BlueSpice\Social\Watch\Extension::watchEntity(
-			$this->entity,
-			null,
-			$this->user
-		);
+		$this->watchEntity();
 
 		$this->autoWatchDone = true;
 
@@ -106,7 +66,7 @@ class AutoWatcher {
 		if( $this->user == null ) {
 			$user = $this->getUser();
 			if( $user instanceof \User ) {
-				$this->setUser( $user );
+				$this->user = $user;
 			}
 		}
 	}
@@ -128,12 +88,72 @@ class AutoWatcher {
 		return $loggedInUser;
 	}
 
+	protected function watchEntity() {
+		if( $this->entity->get( SocialEntity::ATTR_TYPE ) == 'profile' ) {
+			return false;//TODO: make notifications about another users actions!
+		}
+		if( $this->entity->getConfig()->get( 'IsWatchable' ) ) {
+			//Watch your own new entries
+			if( $this->entity->userIsOwner( $this->user )
+				&& $this->entity->getTitle()->isNewPage() ) {
+				$status = \WatchAction::doWatch(
+					$this->entity->getTitle(),
+					$this->user
+				);
+			} elseif( !$this->entity->userIsOwner( $this->user ) ){
+				//autowatch the not owned stuff you edited/created
+				$status = \WatchAction::doWatch(
+					$this->entity->getTitle(),
+					$this->user
+				);
+			}
+			if( $this->entity->getTitle()->isNewPage() ) {
+				//get all users, who are watching the related title and make
+				//them watch this entity
+				$this->autoWatchFromRelatedTitle();
+			}
+		}
+		if( $this->entity->hasParent() ) {
+			//recursive parent entity watching.
+			//f.e. the entity you commented on
+			$this->watchEntity(
+				$this->entity->getParent(),
+				$status,
+				$this->user
+			);
+		}
+		
+	}
+
 	/**
-	 * If entity is changed, we need to
-	 * clear values
+	 * Very slow :(
+	 * @return boolean
 	 */
-	protected function reset() {
-		$this->user = null;
-		$this->autoWatchDone = false;
+	public function autoWatchFromRelatedTitle() {
+		$title = $this->entity->getRelatedTitle();
+		if( !$title || !$title->exists() ) {
+			return true;
+		}
+
+		$res = wfGetDB( DB_SLAVE )->select(
+			'watchlist',
+			'wl_user',
+			[
+				'wl_namespace' => $title->getNamespace(),
+				'wl_title' => $title->getText()
+			],
+			__METHOD__
+		);
+		if( !$res ) {
+			//:(
+			return true;
+		}
+		foreach( $res as $row ) {
+			$status = \WatchAction::doWatch(
+				$this->entity->getTitle(),
+				\User::newFromId( $row->wl_user )
+			);
+		}
+		return true;
 	}
 }

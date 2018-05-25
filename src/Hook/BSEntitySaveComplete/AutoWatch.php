@@ -11,14 +11,10 @@ class AutoWatch extends BSEntitySaveComplete {
 			return true;
 		}
 
-		$autoWatcher = \MediaWiki\MediaWikiServices::getInstance()
-			->getService( 'BSSocialAutoWatcher' );
-
-		$autoWatcher->setEntity( $this->entity );
-		$autoWatcher->setContext( $this->getContext() );
+		$autoWatcherFactory = $this->getServices()->getService( 'BSSocialAutoWatcherFactory' );
+		$autoWatcher = $autoWatcherFactory->factory( $this->entity, $this->getContext() );
 		$autoWatcher->autoWatch();
 
 		return true;
 	}
 }
-

@@ -87,7 +87,15 @@ class WatchEntities extends \BSApiTasksBase {
 		$oResult->payload['entity'] = \FormatJson::encode( $oEntity );
 		$oResult->payload['entityconfig'][$oEntity->get( Entity::ATTR_TYPE )]
 			= \FormatJson::encode( $oEntity->getConfig() );
-		$oResult->payload['view'] = $oEntity->render();
+
+		$renderer = $oEntity->getRenderer( $this->getContext() );
+		if( empty( $vTaskData->outputtype ) ) {
+			$oResult->payload['view'] = $renderer->render();
+		} else {
+			$oResult->payload['view'] = $renderer->render(
+				$vTaskData->outputtype
+			);
+		}
 		return $oResult;
 	}
 

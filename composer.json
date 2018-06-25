@@ -1,9 +1,12 @@
 {
-	"name": "mediawiki/blue-spice-social-watch",
+	"name": "bluespice/socialwatch",
 	"type": "mediawiki-extension",
 	"description": "Watch functionality for social entities",
 	"license": "GPL-3.0-only",
 	"require": {
 		"composer/installers": "~1.0"
+	},
+	"extra": {
+		"installer-name": "BlueSpiceSocialWatch"
 	}
 }

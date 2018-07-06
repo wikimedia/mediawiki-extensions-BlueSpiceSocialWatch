@@ -40,7 +40,8 @@ class AddWatchSection extends BSSocialEntityOutputRenderAfterContent {
 			'class' => implode( ' ', $aClasses )
 		));
 
-		$sView .= wfMessage( $sMsg )->parse();
+		$sView .= \Html::element( 'span', [], wfMessage( $sMsg )->parse() );
+
 		$sView .= \XML::closeElement( "a" );
 
 		$this->aViews[] = $sView;

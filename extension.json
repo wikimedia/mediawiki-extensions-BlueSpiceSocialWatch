@@ -4,7 +4,7 @@
 	"license-name": "GPL-3.0-only",
 	"url": "https://help.bluespice.com/index.php/BlueSpiceSocial",
 	"author": "Patric Wirth",
-	"descriptionmsg": "bs-bssocialwatch-desc",
+	"descriptionmsg": "bs-socialwatch-desc",
 	"type": "bluespice",
 	"attributes": {
 		"BlueSpiceFoundation": {

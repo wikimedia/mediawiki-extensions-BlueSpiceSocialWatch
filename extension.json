@@ -2,7 +2,7 @@
 	"name": "BlueSpiceSocialWatch",
 	"version": "3.0.0-beta",
 	"license-name": "GPL-3.0-only",
-	"url": "https://help.bluespice.com/index.php/BlueSpiceSocial",
+	"url": "https://en.wiki.bluespice.com/wiki/Reference:SocialWatch",
 	"author": "Patric Wirth",
 	"descriptionmsg": "bs-socialwatch-desc",
 	"type": "bluespice",

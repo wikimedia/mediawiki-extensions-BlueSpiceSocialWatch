@@ -34,7 +34,6 @@
 	],
 	"ResourceModules": {
 		"ext.bluespice.social.watch.styles": {
-			"targets": [ "desktop", "mobile" ],
 			"styles": {
 				"bluespice.social.watch.mobile.less": {
 					"media": "all and ( max-width: 720px )"
@@ -48,7 +47,6 @@
 			"dependencies": [
 				"ext.bluespice.social.entity"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"bluespice.social.watch.js"
 			],

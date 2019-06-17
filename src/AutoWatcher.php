@@ -132,7 +132,7 @@ class AutoWatcher {
 			return true;
 		}
 
-		$res = wfGetDB( DB_SLAVE )->select(
+		$res = wfGetDB( DB_REPLICA )->select(
 			'watchlist',
 			'wl_user',
 			[

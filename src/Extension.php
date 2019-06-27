@@ -23,7 +23,7 @@
  * @package    BlueSpiceSocial
  * @subpackage BlueSpiceSocialWatch
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
- * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
+ * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  */
 namespace BlueSpice\Social\Watch;
 

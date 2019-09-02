@@ -26,6 +26,8 @@
  * @filesource
  */
 namespace BlueSpice\Social\Watch\Api\Task;
+
+use BlueSpice\Api\Response\Standard;
 use BlueSpice\Social\Entity;
 
 /**
@@ -38,39 +40,49 @@ class WatchEntities extends \BSApiTasksBase {
 	 * Methods that can be called by task param
 	 * @var array
 	 */
-	protected $aTasks = array(
+	protected $aTasks = [
 		'editWatch',
-	);
+	];
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function getRequiredTaskPermissions() {
-		return array(
+		return [
 			'editWatch' => [ 'read' ],
-		);
+		];
 	}
 
+	/**
+	 *
+	 * @param \stdClass $vTaskData
+	 * @param array $aParams
+	 * @return Standard
+	 */
 	public function task_editWatch( $vTaskData, $aParams ) {
 		$oResult = $this->makeStandardReturn();
 		$this->checkPermissions();
 
-		if( empty( $vTaskData->id ) ) {
+		if ( empty( $vTaskData->id ) ) {
 			$vTaskData->id = 0;
 		}
-		if( empty( $vTaskData->watch ) ) {
+		if ( empty( $vTaskData->watch ) ) {
 			$vTaskData->watch = false;
 		}
 
-		if( $this->getUser()->isAnon() ) {
+		if ( $this->getUser()->isAnon() ) {
 			return $oResult;
 		}
 		$oEntity = $this->getServices()->getBSEntityFactory()->newFromID(
 			$vTaskData->id,
 			NS_SOCIALENTITY
 		);
-		if( !$oEntity instanceof Entity || !$oEntity->exists() ) {
+		if ( !$oEntity instanceof Entity || !$oEntity->exists() ) {
 			return $oResult;
 		}
 
-		if( !$vTaskData->watch ) {
+		if ( !$vTaskData->watch ) {
 			$oStatus = \WatchAction::doUnwatch(
 				$oEntity->getTitle(),
 				$this->getUser()
@@ -81,7 +93,7 @@ class WatchEntities extends \BSApiTasksBase {
 				$this->getUser()
 			);
 		}
-		if( !$oStatus->isOK() ) {
+		if ( !$oStatus->isOK() ) {
 			$oResult->message = $oStatus->getHTML();
 			return $oResult;
 		}
@@ -92,7 +104,7 @@ class WatchEntities extends \BSApiTasksBase {
 			= \FormatJson::encode( $oEntity->getConfig() );
 
 		$renderer = $oEntity->getRenderer( $this->getContext() );
-		if( empty( $vTaskData->outputtype ) ) {
+		if ( empty( $vTaskData->outputtype ) ) {
 			$oResult->payload['view'] = $renderer->render();
 		} else {
 			$oResult->payload['view'] = $renderer->render(
@@ -100,25 +112,5 @@ class WatchEntities extends \BSApiTasksBase {
 			);
 		}
 		return $oResult;
-	}
-
-	/**
-	 * Returns the bsic description for this module
-	 * @return type
-	 */
-	public function getDescription() {
-		return array(
-			'BSApiTasksBase: This should be implemented by subclass'
-		);
-	}
-
-	/**
-	 * Returns the basic example
-	 * @return type
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action='.$this->getModuleName().'&task='.$this->aTasks[0].'&taskData={someKey:"someValue",isFalse:true}',
-		);
 	}
 }

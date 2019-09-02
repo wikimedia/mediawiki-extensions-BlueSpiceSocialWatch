@@ -27,7 +27,5 @@
  */
 namespace BlueSpice\Social\Watch;
 
-use BlueSpice\Social\Entity;
-
 class Extension extends \BlueSpice\Extension {
 }

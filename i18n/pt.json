@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu",
+			"Mansil alfalb"
+		]
+	},
+	"bs-socialwatch-desc": "Funcionalidade de vigiar para entidades BlueSpiceSocial",
+	"bs-socialwatch-watchtext": "Vigiar",
+	"bs-socialwatch-unwatchtext": "Remover vigia"
+}

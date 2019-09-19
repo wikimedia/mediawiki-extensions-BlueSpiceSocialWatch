@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth <wirth@hallowelt.com>"
+			"Patric Wirth <wirth@hallowelt.com>",
+			"Mglaser"
 		]
 	},
 	"bs-socialwatch-desc": "Beobachtungs-Funktionalität für BlueSpice Social-Entitäten",
 	"bs-socialwatch-watchtext": "Beobachten",
 	"bs-socialwatch-unwatchtext": "Nicht mehr beobachten",
-	"bs-socialwatch-var-watch": "Beobachten"
+	"bs-socialwatch-var-watch": "Beobachten",
+	"apihelp-bs-socialwatch-tasks-summary": "Stellt Aufgaben für die Bearbeitung des Beobachten-Status von Entitäten bereit"
 }

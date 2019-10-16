@@ -1,6 +1,6 @@
 /**
  *
- * @author     Patric Wirth <wirth@hallowelt.com>
+ * @author     Patric Wirth
  * @package    BluespiceSocial
  * @subpackage BlueSpiceSocialWatch
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.

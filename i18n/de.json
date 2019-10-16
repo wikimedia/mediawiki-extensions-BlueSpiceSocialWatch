@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth <wirth@hallowelt.com>"
+			"Patric Wirth",
+			"Mglaser"
 		]
 	},
 	"bs-socialwatch-desc": "Beobachtungs-Funktionalität für BlueSpice Social-Entitäten",

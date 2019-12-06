@@ -7,5 +7,6 @@
 	},
 	"bs-socialwatch-desc": "Funcionalidade de vigiar para entidades BlueSpiceSocial",
 	"bs-socialwatch-watchtext": "Vigiar",
-	"bs-socialwatch-unwatchtext": "Remover vigia"
+	"bs-socialwatch-unwatchtext": "Remover vigia",
+	"bs-socialwatch-var-watch": "Vigiar"
 }

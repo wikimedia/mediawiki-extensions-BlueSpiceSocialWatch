@@ -2,8 +2,8 @@
 
 namespace BlueSpice\Social\Watch\Hook\BSSocialEntityOutputRenderAfterContent;
 
-use BlueSpice\Social\Hook\BSSocialEntityOutputRenderAfterContent;
 use BlueSpice\Social\Entity;
+use BlueSpice\Social\Hook\BSSocialEntityOutputRenderAfterContent;
 
 /**
  * Adds a watch button to the entities

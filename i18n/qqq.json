@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth"
+			"Patric Wirth",
+			"Umherirrender"
 		]
 	},
-	"bs-socialwatch-desc": "{{desc|name=BlueSpiceWatch}}",
+	"bs-socialwatch-desc": "{{desc|name=BlueSpiceSocialWatch}}",
 	"bs-socialwatch-watchtext": "Short label for button that sets the watch status to the entry\n{{Identical|Watch}}",
 	"bs-socialwatch-unwatchtext": "Short label for button that sets the unwatch status to the entry\n{{Identical|Unwatch}}",
 	"bs-socialwatch-var-watch": "Label for entry field \"watch\".\n{{Identical|Watch}}",

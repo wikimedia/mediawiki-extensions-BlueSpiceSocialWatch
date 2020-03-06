@@ -74,7 +74,7 @@ class WatchEntities extends \BSApiTasksBase {
 		if ( $this->getUser()->isAnon() ) {
 			return $oResult;
 		}
-		$oEntity = $this->getServices()->getBSEntityFactory()->newFromID(
+		$oEntity = $this->getServices()->getService( 'BSEntityFactory' )->newFromID(
 			$vTaskData->id,
 			NS_SOCIALENTITY
 		);

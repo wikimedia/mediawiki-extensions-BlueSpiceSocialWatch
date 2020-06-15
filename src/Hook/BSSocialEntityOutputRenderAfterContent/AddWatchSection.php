@@ -37,13 +37,13 @@ class AddWatchSection extends BSSocialEntityOutputRenderAfterContent {
 			$aClasses[] = 'bs-socialwatch-unwatched';
 		}
 		$sView = '';
-		$sView .= \XML::openElement( "a", [
+		$sView .= \Html::openElement( "a", [
 			'class' => implode( ' ', $aClasses )
 		] );
 
 		$sView .= \Html::element( 'span', [], wfMessage( $sMsg )->parse() );
 
-		$sView .= \XML::closeElement( "a" );
+		$sView .= \Html::closeElement( "a" );
 
 		$this->aViews[] = $sView;
 		return true;

@@ -81,23 +81,31 @@ class WatchEntities extends \BSApiTasksBase {
 		if ( !$oEntity instanceof Entity || !$oEntity->exists() ) {
 			return $oResult;
 		}
-
-		if ( !$vTaskData->watch ) {
-			$oStatus = \WatchAction::doUnwatch(
-				$oEntity->getTitle(),
-				$this->getUser()
-			);
-		} else {
-			$oStatus = \WatchAction::doWatch(
-				$oEntity->getTitle(),
-				$this->getUser()
-			);
+		if ( !$oEntity->getConfig()->get( 'IsWatchable' ) ) {
+			return $oResult;
 		}
-		if ( !$oStatus->isOK() ) {
-			$oResult->message = $oStatus->getHTML();
+		if ( !$oEntity->userCan() ) {
 			return $oResult;
 		}
 
+		try {
+			if ( !$vTaskData->watch ) {
+				$this->getServices()->getWatchedItemStore()->removeWatch(
+					$this->getUser(),
+					$oEntity->getTitle()
+				);
+			} else {
+				$this->getServices()->getWatchedItemStore()->addWatch(
+					$this->getUser(),
+					$oEntity->getTitle()
+				);
+			}
+		} catch ( \Exception $e ) {
+			$oResult->message = $e->getMessage();
+			return $oResult;
+		}
+
+		$oEntity->invalidateCache();
 		$oResult->success = true;
 		$oResult->payload['entity'] = \FormatJson::encode( $oEntity );
 		$oResult->payload['entityconfig'][$oEntity->get( Entity::ATTR_TYPE )]

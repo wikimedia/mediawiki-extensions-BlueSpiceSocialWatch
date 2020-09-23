@@ -43,7 +43,7 @@ $( document ).bind( 'BSSocialEntityInit', function( event, Entity ) {
 			}
 			$element.addClass( addClass );
 			$element.removeClass( rmvClass );
-			$element.html( mw.message( msg ).plain() );
+			$element.html( $( '<span>' + mw.message( msg ).plain() + '</span>' ) );
 		})
 		.then(function(){
 			disabled = false;

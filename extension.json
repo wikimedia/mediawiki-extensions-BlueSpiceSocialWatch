@@ -55,6 +55,7 @@
 				"ext.bluespice.social.entity"
 			],
 			"scripts": [
+				"EntityActionMenu/Watch.js",
 				"bluespice.social.watch.js"
 			],
 			"messages": [
@@ -72,7 +73,7 @@
 		"BSEntityGetFullData": "\\BlueSpice\\Social\\Watch\\Hook\\BSEntityGetFullData\\AddWatch::callback",
 		"BSEntityConfigDefaults": "\\BlueSpice\\Social\\Watch\\Hook\\BSEntityConfigDefaults\\IsWatchable::callback",
 		"BSEntitySaveComplete": "\\BlueSpice\\Social\\Watch\\Hook\\BSEntitySaveComplete\\AutoWatch::callback",
-		"BSSocialEntityOutputRenderAfterContent": "\\BlueSpice\\Social\\Watch\\Hook\\BSSocialEntityOutputRenderAfterContent\\AddWatchSection::callback"
+		"BSSocialEntityGetActions": "\\BlueSpice\\Social\\Watch\\Hook\\BSSocialEntityGetActions\\AddWatch::callback"
 	},
 	"manifest_version": 2
 }

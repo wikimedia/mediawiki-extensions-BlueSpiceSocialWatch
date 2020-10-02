@@ -16,17 +16,17 @@ bs.social.EntityActionMenuWatch.Watch = function ( entityActionMenu, data ) {
 	me.entityActionMenu = entityActionMenu;
 	me.$element = null;
 
-	isWatched = me.entityActionMenu.entity.data.get('watch');
+	var isWatched = me.entityActionMenu.entity.data.get( 'watch', false );
 	if ( isWatched ) {
 		me.$element = $( '<li><a class="dropdown-item'
-			+ ' bs-social-entityactionaftercontent-watch'
+			+ ' bs-social-entity-action-watch'
 			+ ' bs-socialwatch-watched">'
-			+ mw.message( 'bs-socialwatch-unwatchtext' ).plain()
+			+ '<span>' + mw.message( 'bs-socialwatch-unwatchtext' ).plain() + '</span>'
 			+ '</a></li>'
 		);
 	} else {
 		me.$element = $( '<li><a class="dropdown-item'
-			+ ' bs-social-entityactionaftercontent-watch'
+			+ ' bs-social-entity-action-watch'
 			+ ' bs-socialwatch-watch">'
 			+ mw.message( 'bs-socialwatch-watchtext' ).plain()
 			+ '</a></li>'
@@ -49,7 +49,7 @@ bs.social.EntityActionMenuWatch.Watch.prototype.click = function ( e ) {
 		return;
 	}
 
-	var bWatch = !me.entityActionMenu.entity.data.get('watch');
+	var bWatch = !me.entityActionMenu.entity.data.get( 'watch', false );
 	me.entityActionMenu.entity.showLoadMask();
 	bs.api.tasks.execSilent(
 		'socialwatch',
@@ -59,22 +59,8 @@ bs.social.EntityActionMenuWatch.Watch.prototype.click = function ( e ) {
 		if( !response.success ) {
 			return;
 		}
-		var msg = 'bs-socialwatch-unwatchtext',
-			rmvClass = 'bs-socialwatch-unwatched',
-			addClass = 'bs-socialwatch-watched';
-
-		if( !bWatch ) {
-			msg = 'bs-socialwatch-watchtext';
-			rmvClass = 'bs-socialwatch-watched',
-			addClass = 'bs-socialwatch-unwatched';
-		}
-		me.$element.removeClass( rmvClass );
-		me.$element.addClass( addClass );
-		me.$element.html( mw.message( msg ).plain() );
-	})
-	.then( function(){
-		me.entityActionMenu.entity.hideLoadMask();
-	} );
+		me.entityActionMenu.entity.reload();
+	});
 
 	e.preventDefault();
 

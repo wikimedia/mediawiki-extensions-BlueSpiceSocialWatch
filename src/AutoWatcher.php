@@ -152,10 +152,15 @@ class AutoWatcher {
 			// :(
 			return true;
 		}
+
 		foreach ( $res as $row ) {
+			$user = \User::newFromId( $row->wl_user );
+			if ( !$user || $user->isAnon() ) {
+				continue;
+			}
 			$status = \WatchAction::doWatch(
 				$this->entity->getTitle(),
-				\User::newFromId( $row->wl_user )
+				$user
 			);
 		}
 		return true;

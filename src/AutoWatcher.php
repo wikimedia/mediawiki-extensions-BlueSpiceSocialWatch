@@ -104,13 +104,15 @@ class AutoWatcher {
 				&& $this->entity->getTitle()->isNewPage() ) {
 				$status = \WatchAction::doWatch(
 					$this->entity->getTitle(),
-					$this->user
+					$this->user,
+					\User::IGNORE_USER_RIGHTS
 				);
 			} elseif ( !$this->entity->userIsOwner( $this->user ) ) {
 				// autowatch the not owned stuff you edited/created
 				$status = \WatchAction::doWatch(
 					$this->entity->getTitle(),
-					$this->user
+					$this->user,
+					\User::IGNORE_USER_RIGHTS
 				);
 			}
 			if ( $this->entity->getTitle()->isNewPage() ) {
@@ -160,7 +162,8 @@ class AutoWatcher {
 			}
 			$status = \WatchAction::doWatch(
 				$this->entity->getTitle(),
-				$user
+				$user,
+				\User::IGNORE_USER_RIGHTS
 			);
 		}
 		return true;

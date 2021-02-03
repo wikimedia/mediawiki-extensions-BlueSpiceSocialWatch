@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mirzali"
+			"Mirzali",
+			"Orbot707"
 		]
 	},
 	"bs-socialwatch-watchtext": "Seyr ke",
 	"bs-socialwatch-unwatchtext": "Teqib meke",
-	"bs-socialwatch-var-watch": "Seyr ke"
+	"bs-socialwatch-var-watch": "Seyr ke",
+	"bs-socialwatch-desc": "BlueSpiceSocial-Estakanê yo fonksiyonê temaşey",
+	"apihelp-bs-socialwatch-tasks-summary": "Weziyetê temaşey estekan vurnayışi rê wezifey tedarik keno"
 }

@@ -3,6 +3,7 @@
 namespace BlueSpice\Social\Watch;
 
 use BlueSpice\Social\Entity as SocialEntity;
+use MediaWiki\MediaWikiServices;
 
 class AutoWatcher {
 	/**
@@ -100,19 +101,18 @@ class AutoWatcher {
 		}
 		if ( $this->entity->getConfig()->get( 'IsWatchable' ) ) {
 			// Watch your own new entries
+			$watchlistManager = MediaWikiServices::getInstance()->getWatchlistManager();
 			if ( $this->entity->userIsOwner( $this->user )
 				&& $this->entity->getTitle()->isNewPage() ) {
-				$status = \WatchAction::doWatch(
-					$this->entity->getTitle(),
+				$status = $watchlistManager->addWatchIgnoringRights(
 					$this->user,
-					\User::IGNORE_USER_RIGHTS
+					$this->entity->getTitle()
 				);
 			} elseif ( !$this->entity->userIsOwner( $this->user ) ) {
 				// autowatch the not owned stuff you edited/created
-				$status = \WatchAction::doWatch(
-					$this->entity->getTitle(),
+				$status = $watchlistManager->addWatchIgnoringRights(
 					$this->user,
-					\User::IGNORE_USER_RIGHTS
+					$this->entity->getTitle()
 				);
 			}
 			if ( $this->entity->getTitle()->isNewPage() ) {
@@ -160,10 +160,9 @@ class AutoWatcher {
 			if ( !$user || $user->isAnon() ) {
 				continue;
 			}
-			$status = \WatchAction::doWatch(
-				$this->entity->getTitle(),
+			$status = MediaWikiServices::getInstance()->getWatchlistManager()->addWatchIgnoringRights(
 				$user,
-				\User::IGNORE_USER_RIGHTS
+				$this->entity->getTitle()
 			);
 		}
 		return true;

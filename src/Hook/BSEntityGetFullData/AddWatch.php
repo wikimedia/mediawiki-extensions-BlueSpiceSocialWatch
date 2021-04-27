@@ -4,6 +4,7 @@ namespace BlueSpice\Social\Watch\Hook\BSEntityGetFullData;
 
 use BlueSpice\Hook\BSEntityGetFullData;
 use BlueSpice\Social\Entity;
+use MediaWiki\MediaWikiServices;
 
 class AddWatch extends BSEntityGetFullData {
 
@@ -30,9 +31,9 @@ class AddWatch extends BSEntityGetFullData {
 		if ( !$oUser || $oUser->isAnon() ) {
 			return true;
 		}
-		$this->data['watch'] = $oUser->isWatched(
-			$this->entity->getTitle(),
-			\User::IGNORE_USER_RIGHTS
+		$this->data['watch'] = MediaWikiServices::getInstance()->getWatchlistManager()->isWatchedIgnoringRights(
+			$oUser,
+			$this->entity->getTitle()
 		);
 		return true;
 	}

@@ -12,7 +12,7 @@ class AddWatch extends BSEntityGetFullData {
 		if ( !$this->entity instanceof Entity ) {
 			return false;
 		}
-		if ( !$this->entity->getTitle()->isWatchable() ) {
+		if ( !MediaWikiServices::getInstance()->getWatchlistManager()->isWatchable( $this->entity->getTitle() ) ) {
 			return false;
 		}
 		if ( !$this->entity->getConfig()->get( 'IsWatchable' ) ) {

@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 return [
-	'BSSocialAutoWatcherFactory' => function ( MediaWikiServices $services ) {
+	'BSSocialAutoWatcherFactory' => static function ( MediaWikiServices $services ) {
 		return new \BlueSpice\Social\Watch\AutoWatcherFactory();
 	}
 ];

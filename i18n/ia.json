@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"bs-socialwatch-desc": "Functionalitate de observation pro entitates BlueSpiceSocial",
+	"bs-socialwatch-watchtext": "Observar",
+	"bs-socialwatch-unwatchtext": "Disobservar",
+	"bs-socialwatch-var-watch": "Observar",
+	"apihelp-bs-socialwatch-tasks-summary": "Forni processos pro modificar le stato de observation de entitates"
+}

@@ -155,8 +155,9 @@ class AutoWatcher {
 			return true;
 		}
 
+		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
 		foreach ( $res as $row ) {
-			$user = \User::newFromId( $row->wl_user );
+			$user = $userFactory->newFromId( $row->wl_user );
 			if ( !$user || $user->isAnon() ) {
 				continue;
 			}

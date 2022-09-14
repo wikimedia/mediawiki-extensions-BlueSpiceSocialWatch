@@ -74,7 +74,7 @@ class WatchEntities extends \BSApiTasksBase {
 		if ( $this->getUser()->isAnon() ) {
 			return $oResult;
 		}
-		$oEntity = $this->getServices()->getService( 'BSEntityFactory' )->newFromID(
+		$oEntity = $this->services->getService( 'BSEntityFactory' )->newFromID(
 			$vTaskData->id,
 			NS_SOCIALENTITY
 		);
@@ -90,12 +90,12 @@ class WatchEntities extends \BSApiTasksBase {
 
 		try {
 			if ( !$vTaskData->watch ) {
-				$this->getServices()->getWatchedItemStore()->removeWatch(
+				$this->services->getWatchedItemStore()->removeWatch(
 					$this->getUser(),
 					$oEntity->getTitle()
 				);
 			} else {
-				$this->getServices()->getWatchedItemStore()->addWatch(
+				$this->services->getWatchedItemStore()->addWatch(
 					$this->getUser(),
 					$oEntity->getTitle()
 				);

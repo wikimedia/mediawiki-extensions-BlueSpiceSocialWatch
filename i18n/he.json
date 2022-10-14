@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Steeve815"
 		]
 	},
 	"bs-socialwatch-watchtext": "מעקב",
-	"bs-socialwatch-unwatchtext": "הסרה ממעקב"
+	"bs-socialwatch-unwatchtext": "הסרה ממעקב",
+	"bs-socialwatch-desc": "פונקציונליות מעקב עבור ישויות BlueSpiceSocial",
+	"bs-socialwatch-var-watch": "מעקב",
+	"apihelp-bs-socialwatch-tasks-summary": "אספקת משימות לעריכת מצב המעקב של ישויות"
 }

@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"bs-socialwatch-desc": "Funkcionalnost opazovanja za entitete BlueSpiceSocial",
+	"bs-socialwatch-watchtext": "Opazuj",
+	"bs-socialwatch-unwatchtext": "Odpazuj",
+	"bs-socialwatch-var-watch": "Opazuj",
+	"apihelp-bs-socialwatch-tasks-summary": "Zagotavlja opravila za urejanje stanja opazovanja entitet"
+}

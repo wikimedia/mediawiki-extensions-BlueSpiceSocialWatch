@@ -33,6 +33,9 @@
 	"AutoloadNamespaces": {
 		"BlueSpice\\Social\\Watch\\": "src/"
 	},
+	"TestAutoloadNamespaces": {
+		"BlueSpice\\Social\\Watch\\Tests\\": "tests/phpunit/"
+	},
 	"APIModules": {
 		"bs-socialwatch-tasks": "\\BlueSpice\\Social\\Watch\\Api\\Task\\WatchEntities"
 	},

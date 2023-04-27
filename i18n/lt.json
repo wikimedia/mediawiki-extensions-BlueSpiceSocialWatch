@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"bs-socialwatch-desc": "BlueSpiceSocial-entities stebėjimo funkcija",
+	"bs-socialwatch-watchtext": "Stebėti",
+	"bs-socialwatch-unwatchtext": "Nebestebėti",
+	"bs-socialwatch-var-watch": "Stebėti"
+}

@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bjankuloski06",
 			"Vlad5250"
 		]
 	},
 	"bs-socialwatch-watchtext": "Набљудувај",
-	"bs-socialwatch-unwatchtext": "Престани со набљудување",
+	"bs-socialwatch-unwatchtext": "Прекини набљудување",
 	"bs-socialwatch-var-watch": "Набљудувај"
 }

@@ -141,7 +141,9 @@ class AutoWatcher {
 			return true;
 		}
 
-		$res = wfGetDB( DB_REPLICA )->select(
+		$services = MediaWikiServices::getInstance();
+		$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+		$res = $dbr->select(
 			'watchlist',
 			'wl_user',
 			[
@@ -155,13 +157,14 @@ class AutoWatcher {
 			return true;
 		}
 
-		$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+		$userFactory = $services->getUserFactory();
+		$watchlistManager = $services->getWatchlistManager();
 		foreach ( $res as $row ) {
 			$user = $userFactory->newFromId( $row->wl_user );
 			if ( !$user || $user->isAnon() ) {
 				continue;
 			}
-			$status = MediaWikiServices::getInstance()->getWatchlistManager()->addWatchIgnoringRights(
+			$status = $watchlistManager->addWatchIgnoringRights(
 				$user,
 				$this->entity->getTitle()
 			);

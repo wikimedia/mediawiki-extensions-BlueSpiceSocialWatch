@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"A Chinese Wikipedian"
+			"A Chinese Wikipedian",
+			"Huajing"
 		]
 	},
+	"bs-socialwatch-desc": "用于BlueSpiceSocial条目的监视功能",
 	"bs-socialwatch-watchtext": "监视",
 	"bs-socialwatch-unwatchtext": "取消监视",
-	"bs-socialwatch-var-watch": "监视"
+	"bs-socialwatch-var-watch": "监视",
+	"apihelp-bs-socialwatch-tasks-summary": "提供用于编辑条目监视状态的任务"
 }

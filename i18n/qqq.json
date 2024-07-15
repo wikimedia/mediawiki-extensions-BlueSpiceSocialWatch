@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Huajing",
 			"MuratTheTurkish",
 			"Patric Wirth",
 			"Umherirrender"
 		]
 	},
-	"bs-socialwatch-desc": "{{desc|name=BlueSpiceSocialWatch}}",
+	"bs-socialwatch-desc": "{{desc|name=BlueSpiceSocialWatch}}\n\nThis is part of [https://en.wiki.bluespice.com/wiki/Manual:Extension/BlueSpiceSocial BlueSpiceSocial], a set of extensions that add social features around a wiki page.\n\nEvery entry in the timeline is called a social entity.",
 	"bs-socialwatch-watchtext": "Short label for button that sets the watch status to the entry\n{{Identical|Watch}}",
 	"bs-socialwatch-unwatchtext": "Short label for button that sets the unwatch status to the entry",
 	"bs-socialwatch-var-watch": "Label for entry field \"watch\".\n{{Identical|Watch}}",

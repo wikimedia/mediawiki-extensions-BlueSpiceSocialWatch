@@ -18,16 +18,22 @@ bs.social.EntityActionMenuWatch.Watch = function ( entityActionMenu, data ) {
 
 	var isWatched = me.entityActionMenu.entity.data.get( 'watch', false );
 	if ( isWatched ) {
-		me.$element = $( '<li class="dropdown-item"><a class="'
+		me.$element = $( '<li class=""><a class="'
 			+ ' bs-social-entity-action-watch'
-			+ ' bs-socialwatch-watched highlight">'
+			+ ' bs-socialwatch-watched highlight'
+			+ ' dropdown-item"'
+			+ ' tabindex="0"'
+			+ ' role="button">'
 			+ '<span>' + mw.message( 'bs-socialwatch-unwatchtext' ).plain() + '</span>'
 			+ '</a></li>'
 		);
 	} else {
 		me.$element = $( '<li class="dropdown-item"><a class="'
 			+ ' bs-social-entity-action-watch'
-			+ ' bs-socialwatch-watch">'
+			+ ' bs-socialwatch-watch'
+			+ ' dropdown-item"'
+			+ ' tabindex="0"'
+			+ ' role="button">'
 			+ '<span>' + mw.message( 'bs-socialwatch-watchtext' ).plain() + '</span>'
 			+ '</a></li>'
 		);

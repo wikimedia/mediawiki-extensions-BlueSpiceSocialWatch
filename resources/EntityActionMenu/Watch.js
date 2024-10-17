@@ -17,26 +17,23 @@ bs.social.EntityActionMenuWatch.Watch = function ( entityActionMenu, data ) {
 	me.$element = null;
 
 	var isWatched = me.entityActionMenu.entity.data.get( 'watch', false );
+	var $a;
 	if ( isWatched ) {
-		me.$element = $( '<li class=""><a class="'
-			+ ' bs-social-entity-action-watch'
-			+ ' bs-socialwatch-watched highlight'
-			+ ' dropdown-item"'
-			+ ' tabindex="0"'
-			+ ' role="button">'
-			+ '<span>' + mw.message( 'bs-socialwatch-unwatchtext' ).plain() + '</span>'
-			+ '</a></li>'
-		);
+		$a = $( '<a>' )
+			.addClass( 'bs-social-entity-action-watch bs-socialwatch-watched highlight dropdown-item' )
+			.attr( 'tabindex', 0 )
+			.attr( 'role', 'button' )
+			.attr( 'aria-pressed', 'true' )
+			.html( $( '<span>' ).text( mw.message( 'bs-socialwatch-unwatchtext' ).plain() ) );
+		me.$element = $( '<li>' ).append( $a );
 	} else {
-		me.$element = $( '<li class="dropdown-item"><a class="'
-			+ ' bs-social-entity-action-watch'
-			+ ' bs-socialwatch-watch'
-			+ ' dropdown-item"'
-			+ ' tabindex="0"'
-			+ ' role="button">'
-			+ '<span>' + mw.message( 'bs-socialwatch-watchtext' ).plain() + '</span>'
-			+ '</a></li>'
-		);
+		$a = $( '<a>' )
+			.addClass( 'bs-social-entity-action-watch bs-socialwatch-watch dropdown-item' )
+			.attr( 'tabindex', 0 )
+			.attr( 'role', 'button' )
+			.attr( 'aria-pressed', 'false' )
+			.html( $( '<span>' ).text( mw.message( 'bs-socialwatch-watchtext' ).plain() ) );
+		me.$element = $( '<li>' ).append( $a );
 	}
 
 	me.$element.on( 'click', function( e ) { me.click( e ); } );

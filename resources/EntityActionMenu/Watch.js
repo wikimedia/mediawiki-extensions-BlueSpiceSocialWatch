@@ -35,7 +35,12 @@ bs.social.EntityActionMenuWatch.Watch = function ( entityActionMenu, data ) {
 			.html( $( '<span>' ).text( mw.message( 'bs-socialwatch-watchtext' ).plain() ) );
 		me.$element = $( '<li>' ).append( $a );
 	}
-
+	// This is a link, should be default, but doesn't work, so we need an explicit handler
+	$a.on( 'keydown', function( e ) {
+		if( e.keyCode === 13 ) {
+			me.click();
+		}
+	} );
 	me.$element.on( 'click', function( e ) { me.click( e ); } );
 	me.priority = 5;
 };

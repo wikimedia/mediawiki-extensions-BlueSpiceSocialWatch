@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"bs-socialwatch-desc": "Funcionalidade de vixilancia para as entidades de BlueSpiceSocial",
+	"bs-socialwatch-watchtext": "Vixiar",
+	"bs-socialwatch-unwatchtext": "Deixar de vixiar",
+	"bs-socialwatch-var-watch": "Vixiar",
+	"apihelp-bs-socialwatch-tasks-summary": "Ofrece tarefas para editar o estado de vixilancia das entidades"
+}

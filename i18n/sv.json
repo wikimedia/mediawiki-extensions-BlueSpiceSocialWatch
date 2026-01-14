@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
 	"bs-socialwatch-desc": "Bevakningsfunktionalitet för BlueSpiceSocial-entiteter",
 	"bs-socialwatch-watchtext": "Bevaka",
 	"bs-socialwatch-unwatchtext": "Sluta bevaka",
-	"bs-socialwatch-var-watch": "Bevaka"
+	"bs-socialwatch-var-watch": "Bevaka",
+	"apihelp-bs-socialwatch-tasks-summary": "Tillhandahåller uppgifter för att redigera bevakningsstatus för enheter"
 }

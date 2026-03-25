@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Krisztina"
+		]
+	},
+	"bs-socialwatch-desc": "Követés funkció a BlueSpiceSocial-entitásokhoz",
+	"bs-socialwatch-watchtext": "Követés",
+	"bs-socialwatch-unwatchtext": "Követés vége",
+	"bs-socialwatch-var-watch": "Követés",
+	"apihelp-bs-socialwatch-tasks-summary": "Feladatokat biztosít az entitások követési állapotának szerkesztéséhez"
+}

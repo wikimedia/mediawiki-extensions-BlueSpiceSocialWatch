@@ -5,9 +5,9 @@
 			"Ykhwong"
 		]
 	},
-	"bs-socialwatch-desc": "BlueSpiceSocial 엔티티에 대한 주시 기능",
+	"bs-socialwatch-desc": "BlueSpiceSocial-개체에 대한 주시 기능",
 	"bs-socialwatch-watchtext": "주시",
 	"bs-socialwatch-unwatchtext": "주시 해제",
 	"bs-socialwatch-var-watch": "주시",
-	"apihelp-bs-socialwatch-tasks-summary": "엔티티의 주시 상태를 편집하기 위한 작업을 제공합니다."
+	"apihelp-bs-socialwatch-tasks-summary": "개체의 주시 상태를 편집하기 위한 작업을 제공합니다."
 }

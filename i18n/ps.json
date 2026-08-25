@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"bs-socialwatch-desc": "د BlueSpiceSocial شتونتياوو لپاره د څار کړنچارولي",
+	"bs-socialwatch-watchtext": "څارل",
+	"bs-socialwatch-unwatchtext": "نه‌څارل",
+	"bs-socialwatch-var-watch": "څارل",
+	"apihelp-bs-socialwatch-tasks-summary": "د شتونتياوو د دريځ سمولو لپاره کاردندې چمتو کوي"
+}

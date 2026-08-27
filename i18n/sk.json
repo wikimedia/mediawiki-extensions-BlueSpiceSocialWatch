@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"bs-socialwatch-desc": "Funkcia sledovania pre entity BlueSpiceSocial",
+	"bs-socialwatch-watchtext": "Sledovať",
+	"bs-socialwatch-unwatchtext": "Prestať sledovať",
+	"bs-socialwatch-var-watch": "Sledovať",
+	"apihelp-bs-socialwatch-tasks-summary": "Poskytuje úlohy na úpravu stavu sledovania entít"
+}
